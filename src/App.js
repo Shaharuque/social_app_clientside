@@ -11,6 +11,7 @@ import AddProducts from './Pages/AddProducts/AddProducts';
 import NoPage from './Pages/NoPage/NoPage';
 import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
+import RequireAuth from './Pages/Authentication/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,7 +21,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path='/addproducts' element={<AddProducts />} />
-        <Route path='/meeting' element={<Meeting/>}></Route>
+
+        <Route path='/meeting' element={
+          <RequireAuth>
+            <Meeting/>
+          </RequireAuth>
+        }>
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
