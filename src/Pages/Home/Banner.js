@@ -1,9 +1,11 @@
 import React from 'react';
-import Card1 from './Card1';
-import Card2 from './Card2';
-import Card3 from './Card3';
+import useProducts from '../../CustomHook/useProducts';
+import ProductCard from './ProductCard';
+
 
 const Banner = () => {
+    const [products,setProducts]=useProducts()
+    console.log(products)
     return (
         <div>
             <div class="hero min-h-screen px-8">
@@ -16,11 +18,11 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-
+            {/*Tools/part */}
             <div class="grid lg:grid-cols-3 gap-4 p-4">
-                <Card1></Card1>
-                <Card2></Card2>
-                <Card3></Card3>
+                {
+                   products.map(product=><ProductCard product={product}></ProductCard>)
+                }
             </div>
         </div>
     );
