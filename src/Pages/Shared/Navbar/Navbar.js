@@ -51,7 +51,7 @@ const Navbar = () => {
                     <li><Link to='/about'>About </Link></li>
                     <li>
                         {
-                            user ? <button onClick={signOutHandle}>Sign-out</button>
+                            user ? <button style={{color:'red'}} onClick={signOutHandle}>Sign-out</button>
                             :
                             <Link to='/login'>Login</Link>
                         }
