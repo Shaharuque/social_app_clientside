@@ -4,11 +4,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Navbar from './Pages/Shared/Navbar/Navbar';
-import Login from './Pages/Login/Login';
+
 import Footer from './Pages/Shared/Footer/Footer';
 import Meeting from './Pages/MeetingClient/Meeting';
 import AddProducts from './Pages/AddProducts/AddProducts';
 import NoPage from './Pages/NoPage/NoPage';
+import Login from './Pages/Authentication/Login/Login';
+import Register from './Pages/Authentication/Register/Register';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path='/meeting' element={<Meeting/>}></Route>
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path='*' element={<NoPage></NoPage>}/>
       </Routes>
     <Footer></Footer>  
