@@ -1,12 +1,14 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useNavigation } from 'react-day-picker';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
 
 const Navbar = () => {
     const [user,loading,error]=useAuthState(auth)
+    const navigate=useNavigate()
 
     if(loading){
         return <Loading></Loading>
@@ -15,6 +17,7 @@ const Navbar = () => {
     //handle logout
     const signOutHandle=()=>{
         signOut(auth);
+        navigate('/login');
     }
 
 
@@ -51,7 +54,7 @@ const Navbar = () => {
                     <li><Link to='/about'>About </Link></li>
                     <li>
                         {
-                            user ? <button style={{color:'red'}} onClick={signOutHandle}>Sign-out</button>
+                            user ? <button style={{color:'red'}} onClick={signOutHandle}>Sign-out<sup style={{color:'blue'}}>{user.displayName}</sup></button>
                             :
                             <Link to='/login'>Login</Link>
                         }
