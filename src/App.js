@@ -12,6 +12,10 @@ import NoPage from './Pages/NoPage/NoPage';
 import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
 import RequireAuth from './Pages/Authentication/RequireAuth/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import Orders from './Pages/Dashboard/Orders';
+import Reviews from './Pages/Home/Reviews';
 
 function App() {
   return (
@@ -21,13 +25,24 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path='/addproducts' element={<AddProducts />} />
-
+        <Route path='/product_review' element={<Reviews></Reviews>}></Route>
         <Route path='/meeting' element={
           <RequireAuth>
             <Meeting/>
           </RequireAuth>
         }>
         </Route>
+        {/* Dashboard will be a private route */}
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard/>
+          </RequireAuth>
+        }>
+          {/* nested routes */}
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='order' element={<Orders></Orders>}></Route>
+        </Route>
+
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

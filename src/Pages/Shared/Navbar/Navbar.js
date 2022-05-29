@@ -49,9 +49,13 @@ const Navbar = () => {
                     <ul class="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/meeting'>Meeting Us </Link></li>
-                    <li><Link to='/review'>Review</Link></li>
+                    <li><Link to='/product_review'>Review</Link></li>
                     <li><Link to='/contract'>Contact Us</Link></li>
                     <li><Link to='/about'>About </Link></li>
+                    {/* user logged in kora thaklei dashboard ta dekhabo */}
+                    {
+                            user&& <li><Link to="/dashboard">Dashboard</Link></li>
+                    }
                     <li>
                         {
                             user ? <button style={{color:'red'}} onClick={signOutHandle}>Sign-out<sup style={{color:'blue'}}>{user.displayName}</sup></button>
