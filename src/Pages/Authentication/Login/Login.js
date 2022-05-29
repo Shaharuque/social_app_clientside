@@ -15,6 +15,7 @@ import Loading from "../../Loading/Loading";
 import auth from "../../../firebase.init";
 //for react hook form
 import { useForm } from "react-hook-form";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -204,7 +205,7 @@ const Login = () => {
           </span>
         </p>
 
-        {/* <SocialLogin></SocialLogin> */}
+        <SocialLogin></SocialLogin>
       </div>
       <ToastContainer />
     </div>
