@@ -4,7 +4,6 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Navbar from './Pages/Shared/Navbar/Navbar';
-
 import Footer from './Pages/Shared/Footer/Footer';
 import Meeting from './Pages/MeetingClient/Meeting';
 import AddProducts from './Pages/AddProducts/AddProducts';
@@ -15,7 +14,12 @@ import RequireAuth from './Pages/Authentication/RequireAuth/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Orders from './Pages/Dashboard/Orders';
+import MyReview from './Pages/Dashboard/MyReview';
 import Reviews from './Pages/Home/Reviews';
+import PurchaseProduct from './Pages/PurchasePage/PurchaseProduct';
+import { ToastContainer,  } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PaymentPage from './Pages/Payment/PaymentPage';
 
 function App() {
   return (
@@ -32,6 +36,13 @@ function App() {
           </RequireAuth>
         }>
         </Route>
+        <Route path='/purchase/:id' element={
+          <RequireAuth>
+            <PurchaseProduct/>
+          </RequireAuth>
+        }>
+        </Route>
+
         {/* Dashboard will be a private route */}
         <Route path='/dashboard' element={
           <RequireAuth>
@@ -41,6 +52,14 @@ function App() {
           {/* nested routes */}
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='order' element={<Orders></Orders>}></Route>
+          <Route path='myreview' element={<MyReview></MyReview>}></Route>
+        </Route>
+
+        <Route path='/payment/:id' element={
+          <RequireAuth>
+            <PaymentPage/>
+          </RequireAuth>
+        }>
         </Route>
 
         <Route path="/about" element={<About />} />
@@ -48,6 +67,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path='*' element={<NoPage></NoPage>}/>
       </Routes>
+       {/* react toast show korar jnno */}
+       <ToastContainer />
     <Footer></Footer>  
     </div>
   );
