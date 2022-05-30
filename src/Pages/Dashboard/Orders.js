@@ -15,7 +15,7 @@ const Orders = () => {
         fetch(`http://localhost:5000/order?email=${user?.email}`,{
             method:'GET',
             headers:{
-                'authorization':`Bearer ${localStorage.getItem('token')}`
+                authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
             .then(res => {
