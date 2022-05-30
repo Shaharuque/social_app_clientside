@@ -43,7 +43,7 @@ const Navbar = () => {
                             <li><Link to='/meeting'>Meeting Us </Link></li>
                             <li><Link to='/product_review'>Review</Link></li>
                             <li><Link to='/blogs'>Blogs</Link></li>
-                            <li><Link to='/about'>About </Link></li>
+                            <li><Link to='/about'>My Portfolio</Link></li>
                             {/* user logged in kora thaklei dashboard ta dekhabo */}
                             {
                                 user && <li><Link to="/dashboard">Dashboard</Link></li>
@@ -66,7 +66,7 @@ const Navbar = () => {
                         <li><Link to='/meeting'>Meeting Us </Link></li>
                         <li><Link to='/product_review'>Review</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
-                        <li><Link to='/about'>About </Link></li>
+                        <li><Link to='/about'>My Portfolio </Link></li>
                         {/* user logged in kora thaklei dashboard ta dekhabo */}
                         {
                             user && <li><Link to="/dashboard">Dashboard</Link></li>
