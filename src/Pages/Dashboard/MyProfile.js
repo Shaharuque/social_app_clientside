@@ -25,7 +25,7 @@ const MyProfile = () => {
         console.log(userInfo)
         // email thakley particular email ar user ar data chailey update kora jabey 
         if(user?.email){
-            fetch(`http://localhost:5000/user/${user?.email}`,{
+            fetch(`https://desolate-bastion-01704.herokuapp.com/user/${user?.email}`,{
                 method:'PUT',
                 headers:{
                     'Content-Type':'application/json'

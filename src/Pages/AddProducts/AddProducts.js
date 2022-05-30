@@ -1,7 +1,10 @@
 import React from "react";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { toast } from 'react-toastify';
 
 const AddProducts = () => {
+  const [user]=useAuthState(auth)
   const handleAddProduct = (e) => {
     e.preventDefault();
 
@@ -12,7 +15,7 @@ const AddProducts = () => {
     const description = e.target.description.value;
     const supplier = e.target.supplier.value;
     const img = e.target.img.value;
-    const email = e.target.email.value;
+    const email = user?.email;
     const product = {
       name,
       min_quantity,
@@ -26,7 +29,7 @@ const AddProducts = () => {
     //console.log(product);
 
     //sending product to DB through API
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://desolate-bastion-01704.herokuapp.com/addproduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +39,7 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Success:", data);
-        alert("PRODUCT ADDED SUCCESSFULLY");
+        toast.success("PRODUCT ADDED SUCCESSFULLY");
         //form ta k reset korbey
         e.target.reset();
       })
@@ -70,7 +73,7 @@ const AddProducts = () => {
        <input type="number" name="available_quantity" placeholder="Available Quantity" className="input input-bordered input-primary w-full max-w-xs mb-3" required/>
        <input type="number" name="price" placeholder="Price(per unit)" className="input input-bordered input-primary w-full max-w-xs mb-3" required/>
        <input type="text" name="supplier" placeholder="Supplier" className="input input-bordered input-primary w-full max-w-xs mb-3" required/>
-       <input type="text" name="email" placeholder="Email" className="input input-bordered input-primary w-full max-w-xs mb-3" />
+       <input type="text" value={user?.email} placeholder="Email" className="input input-bordered input-primary w-full max-w-xs mb-3" />
        <input type="submit" value="Submit" class="btn btn-secondary w-full max-w-xs text-white" />
       </form>
     </div>

@@ -7,28 +7,28 @@ import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
 
 const Navbar = () => {
-    const [user,loading,error]=useAuthState(auth)
-    const navigate=useNavigate()
+    const [user, loading, error] = useAuthState(auth)
+    const navigate = useNavigate()
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
 
     //handle logout
-    const signOutHandle=()=>{
+    const signOutHandle = () => {
         signOut(auth);
         localStorage.removeItem('token') //logout ar sathey sathey access token removed
         navigate('/login');
     }
 
 
-    const menuItems=<>
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/meeting'>Meeting Us </Link></li>
-    <li><Link to='/review'>Review</Link></li>
-    <li><Link to='/contract'>Contact Us</Link></li>
-    <li><Link to='/about'>About </Link></li>
-    <li><Link to='/login'>Login</Link></li>
+    const menuItems = <>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/meeting'>Meeting Us </Link></li>
+        <li><Link to='/review'>Review</Link></li>
+        <li><Link to='/contract'>Contact Us</Link></li>
+        <li><Link to='/about'>About </Link></li>
+        <li><Link to='/login'>Login</Link></li>
     </>
     return (
         <div>
@@ -39,32 +39,46 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/meeting'>Meeting Us </Link></li>
+                            <li><Link to='/product_review'>Review</Link></li>
+                            <li><Link to='/contract'>Contact Us</Link></li>
+                            <li><Link to='/about'>About </Link></li>
+                            {/* user logged in kora thaklei dashboard ta dekhabo */}
                             {
-                                menuItems
+                                user && <li><Link to="/dashboard">Dashboard</Link></li>
                             }
+                            <li>
+                                {
+                                    user ? <button style={{ color: 'red' }} onClick={signOutHandle}>Sign-out<sup style={{ color: 'blue' }}>{user.displayName}</sup></button>
+                                        :
+                                        <Link to='/login'>Login</Link>
+                                }
+
+                            </li>
                         </ul>
                     </div>
                     <Link to='/' class="btn btn-ghost normal-case text-xl">Tesla Service</Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/meeting'>Meeting Us </Link></li>
-                    <li><Link to='/product_review'>Review</Link></li>
-                    <li><Link to='/contract'>Contact Us</Link></li>
-                    <li><Link to='/about'>About </Link></li>
-                    {/* user logged in kora thaklei dashboard ta dekhabo */}
-                    {
-                            user&& <li><Link to="/dashboard">Dashboard</Link></li>
-                    }
-                    <li>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/meeting'>Meeting Us </Link></li>
+                        <li><Link to='/product_review'>Review</Link></li>
+                        <li><Link to='/contract'>Contact Us</Link></li>
+                        <li><Link to='/about'>About </Link></li>
+                        {/* user logged in kora thaklei dashboard ta dekhabo */}
                         {
-                            user ? <button style={{color:'red'}} onClick={signOutHandle}>Sign-out<sup style={{color:'blue'}}>{user.displayName}</sup></button>
-                            :
-                            <Link to='/login'>Login</Link>
+                            user && <li><Link to="/dashboard">Dashboard</Link></li>
                         }
-                        
-                    </li>
+                        <li>
+                            {
+                                user ? <button style={{ color: 'red' }} onClick={signOutHandle}>Sign-out<sup style={{ color: 'blue' }}>{user.displayName}</sup></button>
+                                    :
+                                    <Link to='/login'>Login</Link>
+                            }
+
+                        </li>
                     </ul>
                 </div>
 

@@ -12,7 +12,7 @@ const Orders = () => {
 
     useEffect(() => {
         // now outside thekey url a req korleo user ar orders data pabey na
-        fetch(`http://localhost:5000/order?email=${user?.email}`,{
+        fetch(`https://desolate-bastion-01704.herokuapp.com/order?email=${user?.email}`,{
             method:'GET',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('token')}`

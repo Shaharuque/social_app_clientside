@@ -32,21 +32,27 @@ const Dashboard = () => {
           <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
             <li>
-                <Link to='/dashboard'>Dashboard</Link>
+              <Link style={{fontWeight:'bold',color:'gray'}} to='/dashboard'>Dashboard</Link>
             </li>
             {
               admin ?
-                <li>
-                  <Link to='/dashboard/users'>All Users</Link>
-                </li>
+                <div>
+                  <li>
+                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/users'>Make Admin</Link>
+                  </li>
+                  <li>
+                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/addproducts'>Add Product</Link>
+                  </li>
+                </div>
                 :
                 <div>
                   <li>
-                    <Link to='/dashboard/order'>Orders</Link>
+                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/order'>Orders</Link>
                   </li>
                   <li>
-                    <Link to='/dashboard/myreview'>Review</Link>
+                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/myreview'>Review</Link>
                   </li>
+
                 </div>
             }
 

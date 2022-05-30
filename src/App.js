@@ -29,7 +29,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path='/addproducts' element={<AddProducts />} />
         <Route path='/product_review' element={<Reviews></Reviews>}></Route>
         <Route path='/meeting' element={
           <RequireAuth>
@@ -55,6 +54,7 @@ function App() {
           <Route path='order' element={<Orders></Orders>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
+          <Route path='addproducts' element={<AddProducts />} />
         </Route>
 
         <Route path='/payment/:id' element={
