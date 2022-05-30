@@ -24,7 +24,9 @@ const Dashboard = () => {
             Welcome to Your Dashboard
           </h2>
           {/* <!-- Page content here --> */}
-          <Outlet />
+          <div style={{padding:'20px'}}>
+            <Outlet/>
+          </div>
 
         </div>
         <div class="drawer-side">
@@ -42,6 +44,9 @@ const Dashboard = () => {
                   </li>
                   <li>
                     <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/addproducts'>Add Product</Link>
+                  </li>
+                  <li>
+                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/manageproducts'>Manage Product</Link>
                   </li>
                 </div>
                 :

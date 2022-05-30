@@ -21,8 +21,11 @@ import { ToastContainer,  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PaymentPage from './Pages/Payment/PaymentPage';
 import Users from './Pages/Dashboard/Users';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
+
   return (
     <div className=''>
     <Navbar></Navbar>
@@ -30,6 +33,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path='/product_review' element={<Reviews></Reviews>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/meeting' element={
           <RequireAuth>
             <Meeting/>
@@ -55,6 +59,7 @@ function App() {
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
           <Route path='addproducts' element={<AddProducts />} />
+          <Route path='manageproducts' element={<ManageProducts></ManageProducts>} />
         </Route>
 
         <Route path='/payment/:id' element={
