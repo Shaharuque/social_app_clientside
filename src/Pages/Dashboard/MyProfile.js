@@ -6,7 +6,7 @@ import { FaUserAstronaut } from 'react-icons/fa'
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     if(loading){
         return<Loading></Loading>

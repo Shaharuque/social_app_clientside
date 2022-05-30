@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { signOut } from "firebase/auth";
 
 const Orders = () => {
 
@@ -10,8 +11,22 @@ const Orders = () => {
     const navigate=useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user?.email}`)
-            .then(res => res.json())
+        // now outside thekey url a req korleo user ar orders data pabey na
+        fetch(`http://localhost:5000/order?email=${user?.email}`,{
+            method:'GET',
+            headers:{
+                'authorization':`Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                console.log(res)
+                if(res.status===401 || res.status===403){
+                    signOut(auth);
+                    localStorage.removeItem('token') //logout ar sathey sathey access token removed
+                    navigate('/login')
+                }
+                return res.json()
+            })
             .then(data => {
                 setOrders(data)
             })
@@ -25,7 +40,7 @@ const Orders = () => {
 
     return (
         <div style={{padding:'10px'}}>
-            <h1 style={{ textAlign: 'center' }}> Order Report of Mr/Mrs.{user.displayName}</h1>
+            <h1 style={{ textAlign: 'center' }}> Order Report of Mr/Mrs.{user?.displayName}</h1>
             {/* Orders gula ekta table a show korbo */}
 
             <div class="overflow-x-auto mt-16">
@@ -45,7 +60,7 @@ const Orders = () => {
 
                     <tbody>
                         {/* dynamically  each row tey data dekhabey each appointment ar*/}
-                        {orders.map((order, index) => (
+                        {orders?.map((order, index) => (
                             <tr>
                                 <td>{index + 1}</td>
                                 <td>{order.product_id}</td>
