@@ -16,6 +16,7 @@ import auth from "../../../firebase.init";
 //for react hook form
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useToken from "../../../CustomHook/useToken";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,6 +35,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   //reset password ar jnno useSendPasswordResetEmail react-firebase-hook use kora holo
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  //access token get after valid login
+  const [token,setToken]=useToken(user)
 
   //user login kora na tahley to login page a niye jabey plus user login korar por shei user k jei page thekey login ar jnno ashsey shei page a niye jabey
   const location = useLocation();
@@ -60,7 +63,7 @@ const Login = () => {
   }
 
   //login korar por user k jei page thekey login ar jnno ashsey shei page a niye jabey
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

@@ -17,6 +17,7 @@ const Navbar = () => {
     //handle logout
     const signOutHandle=()=>{
         signOut(auth);
+        localStorage.removeItem('token') //logout ar sathey sathey access token removed
         navigate('/login');
     }
 

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init'
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../../Loading/Loading';
+import useToken from '../../../CustomHook/useToken';
 
 // import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -22,7 +23,7 @@ const Register = () => {
       ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
     //updating urer profile
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);  
-   
+    const [token,setToken]=useToken(user)
 
     const submitHandler=async(e)=>{
         e.preventDefault()
@@ -35,7 +36,8 @@ const Register = () => {
         await updateProfile({displayName:userName})
     }  
 
-    if(user){
+    //backend thekey token peley e navigate korbo user k
+    if(token){
         navigate('/')
     }
 
