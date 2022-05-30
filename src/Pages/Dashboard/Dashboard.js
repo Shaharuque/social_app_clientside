@@ -20,7 +20,7 @@ const Dashboard = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
           </div>
-          <h2 className="text-3xl font-bold text-teal-600">
+          <h2 className="text-3xl font-bold text-teal-600 text-center">
             Welcome to Your Dashboard
           </h2>
           {/* <!-- Page content here --> */}
@@ -34,7 +34,7 @@ const Dashboard = () => {
           <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
             <li>
-              <Link style={{fontWeight:'bold',color:'gray'}} to='/dashboard'>Dashboard</Link>
+              <Link style={{fontWeight:'bold',color:'gray'}} to='/dashboard'>My Profile</Link>
             </li>
             {
               admin ?
