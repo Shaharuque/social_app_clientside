@@ -1,3 +1,25 @@
+## Site Name
+Humbarg_car_parts_menufacturar
+## Live Link
+[https://car-parts-menufacturar.web.app/](https://car-parts-menufacturar.web.app/)
+## Features and functionalies
+***
+* [Authentication]
+* [Manage Inventory]
+* [Adding, Deleting,Updating can be done through client side]
+* [Communication with server side]
+* [Data will be saved in MongoDB]
+
+## A list of technologies used within the project:
+* MongoDB
+* Node Js
+* Express Js
+* React Js
+* Tailwind CSS
+* Firebase Authentication
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
