@@ -17,8 +17,8 @@ const Reviews = () => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', fontWeight: 'bold', color: 'teal',marginTop:'50px' }}>Visitors Review<sup >We loved to hear you out.</sup></h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 mt-16'>
+            <h1 style={{ textAlign: 'center', fontWeight: 'bold', color: 'teal',marginTop:'50px' }}>Visitors Review<sup >We loved to hear you out, Come on do some comments.</sup></h1>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-16'>
                 {
                     reviews.map(review => <ReviewCard review={review}></ReviewCard>)
                 }
