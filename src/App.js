@@ -76,7 +76,7 @@ function App() {
       </Routes>
        {/* react toast show korar jnno */}
        <ToastContainer />
-    <Footer></Footer>  
+    {/*<Footer></Footer>*/}  
     </div>
   );
 }

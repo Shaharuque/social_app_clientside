@@ -20,7 +20,7 @@ const Dashboard = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
           </div>
-          <h2 className="text-3xl font-bold text-teal-600 text-center">
+          <h2 className="text-3xl font-bold text-teal-600 text-center font-sans">
             Welcome to Your Dashboard
           </h2>
           {/* <!-- Page content here --> */}
@@ -31,31 +31,31 @@ const Dashboard = () => {
         </div>
         <div class="drawer-side">
           <label for="dashboard-sidebar" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
+          <ul class="menu p-4 overflow-y-auto w-60 bg-yellow-500 text-base-content">
             {/* <!-- Sidebar content here --> */}
-            <li>
-              <Link style={{fontWeight:'bold',color:'gray'}} to='/dashboard'>My Profile</Link>
+            <li className='mb-4'>
+              <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard'>My Profile</Link>
             </li>
             {
               admin ?
                 <div>
-                  <li>
-                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/users'>Make Admin</Link>
+                  <li className='mb-4'>
+                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/users'>Make Admin</Link>
                   </li>
-                  <li>
-                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/addproducts'>Add Product</Link>
+                  <li className='mb-4'>
+                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/addproducts'>Add Product</Link>
                   </li>
-                  <li>
-                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/manageproducts'>Manage Product</Link>
+                  <li className='mb-4'>
+                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/manageproducts'>Manage Product</Link>
                   </li>
                 </div>
                 :
                 <div>
-                  <li>
-                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/order'>Orders</Link>
+                  <li className='mb-4'>
+                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/order'>Orders</Link>
                   </li>
-                  <li>
-                    <Link style={{fontWeight:'bold',color:'teal'}} to='/dashboard/myreview'>Review</Link>
+                  <li className='mb-4'>
+                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/myreview'>Review</Link>
                   </li>
 
                 </div>

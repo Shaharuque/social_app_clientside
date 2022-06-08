@@ -27,7 +27,7 @@ const MyReview = () => {
     return (
         <>
             <div className='flex flex-col justify-center'>
-                <textarea ref={reviewRef} class="textarea textarea-accent" placeholder="Add Your Review"></textarea>
+                <textarea ref={reviewRef} class="textarea textarea-accent" placeholder="Add Your Review" required></textarea>
                 <div className='flex mt-4 mb-4'>
                     <h3 className='mr-4 font-bold'>Ratings: </h3>
                     <div class="rating">

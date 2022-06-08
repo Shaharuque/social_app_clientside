@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { isLoading, data: all_user, refetch } = useQuery('availble', () =>
+    const { isLoading, data: all, refetch } = useQuery('availble', () =>
         fetch('https://desolate-bastion-01704.herokuapp.com/users', {
             method: 'GET',
             headers: {
@@ -19,7 +19,7 @@ const Users = () => {
     }
     return (
         <div>
-            <h1>Users:{all_user?.length}</h1>
+            <h1>Users:{all.length}</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -34,7 +34,7 @@ const Users = () => {
                     <tbody>
                         {/* dynamically each user ar jnno UserRow component render hobey*/}
                         {
-                            all_user?.map((user, index) => <UserRow
+                            all.map((user, index) => <UserRow
                                 key={user._id}
                                 user={user}
                                 index={index}

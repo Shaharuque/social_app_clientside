@@ -48,7 +48,6 @@ const Orders = () => {
                     <thead>
                         <tr>
                             <th>Serial No.</th>
-                            <th>Product ID</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total</th>
@@ -63,13 +62,12 @@ const Orders = () => {
                         {orders?.map((order, index) => (
                             <tr>
                                 <td>{index + 1}</td>
-                                <td>{order.product_id}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
                                 <td>{order.total}</td>
                                 <td style={{color:'red'}}>{order.status}</td>
                                 <td>{order.date}</td>
-                                <td onClick={()=>clickHandler(order._id)} style={{backgroundColor:'teal',borderRadius:'10px',color:'white',textAlign:'center'}}>Pay</td>
+                                <td onClick={()=>clickHandler(order._id)} className='bg-teal-500 rounded-lg text-center text-white hover:bg-yellow-500 cursor-pointer'>Pay</td>
                             </tr>
                         ))}
 

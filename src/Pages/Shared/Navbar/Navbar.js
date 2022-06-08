@@ -32,7 +32,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-black">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -42,8 +42,7 @@ const Navbar = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/meeting'>Meeting Us </Link></li>
                             <li><Link to='/product_review'>Review</Link></li>
-                            <li><Link to='/blogs'>Blogs</Link></li>
-                            <li><Link to='/about'>My Portfolio</Link></li>
+                            <li><Link to='/about'>About</Link></li>
                             {/* user logged in kora thaklei dashboard ta dekhabo */}
                             {
                                 user && <li><Link to="/dashboard">Dashboard</Link></li>
@@ -58,22 +57,22 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <Link to='/' class="btn btn-ghost normal-case text-xl text-teal-600">Humbarg_Manufacturer</Link>
+                    <Link to='/' class="btn btn-ghost normal-case text-xl text-teal-600 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg hover:bg-yellow-400 hover:text-white">Humbarg_Manufacturer</Link>
                 </div>
-                <div class="navbar-center hidden lg:flex">
-                    <ul class="menu menu-horizontal p-0">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/meeting'>Meeting Us </Link></li>
-                        <li><Link to='/product_review'>Review</Link></li>
-                        <li><Link to='/blogs'>Blogs</Link></li>
-                        <li><Link to='/about'>My Portfolio </Link></li>
+                
+                <div class="navbar-end hidden lg:flex">
+                    <ul class="menu menu-horizontal p-0 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg text-white">
+                        <li className='hover:bg-yellow-400 rounded'><Link to='/'>Home</Link></li>
+                        <li className='hover:bg-yellow-400 rounded'><Link to='/meeting'>Meeting Us </Link></li>
+                        <li className='hover:bg-yellow-400 rounded'><Link to='/product_review'>Review</Link></li>
+                        <li className='hover:bg-yellow-400 rounded'><Link to='/about'>About </Link></li>
                         {/* user logged in kora thaklei dashboard ta dekhabo */}
                         {
-                            user && <li><Link to="/dashboard">Dashboard</Link></li>
+                            user && <li className='hover:bg-yellow-400 rounded'><Link to="/dashboard">Dashboard</Link></li>
                         }
-                        <li>
+                        <li className='hover:bg-red-700 rounded'>
                             {
-                                user ? <button style={{ color: 'red' }} onClick={signOutHandle}>Sign-out<sup style={{ color: 'blue' }}>{user.displayName}</sup></button>
+                                user ? <button style={{ color: 'white' }} onClick={signOutHandle}>Sign-out<sup style={{ color: 'teal',fontWeight:'bold' }}>{user.displayName}</sup></button>
                                     :
                                     <Link to='/login'>Login</Link>
                             }
