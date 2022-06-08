@@ -76,7 +76,7 @@ const MyProfile = () => {
                         <figure><img src={singleUser?.img} alt="Profile" /></figure>
                         <div class="card-body">
                             <h2 class="card-title font-bold text-sm">
-                                Name: {singleUser?.name}
+                                Name: {user?.displayName}
                             </h2>
                             <h2 class="card-title font-bold text-sm">
                                 Email: {singleUser?.email}
