@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 
 
 const Banner = () => {
-    const [products,setProducts]=useProducts()
+    const [products, setProducts] = useProducts()  //all products get from DB
     console.log(products)
     return (
         <div>
@@ -18,10 +18,10 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-            {/*Tools/part */}
+            {/*Tools/part /products*/}
             <div class="grid lg:grid-cols-3 gap-4 p-4">
                 {
-                   products.map(product=><ProductCard product={product}></ProductCard>)
+                    products.map(product => <ProductCard product={product}></ProductCard>)
                 }
             </div>
         </div>

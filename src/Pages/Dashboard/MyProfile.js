@@ -12,7 +12,7 @@ const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
 
     const { isLoading, data: singleUser, refetch } = useQuery('availble', () =>
-        fetch(`https://desolate-bastion-01704.herokuapp.com/user/${user.email}`, {
+        fetch(`http://localhost:5000/user/${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -40,7 +40,7 @@ const MyProfile = () => {
         console.log(userInfo)
         // email thakley particular email ar user ar data chailey update kora jabey 
         if (user?.email) {
-            fetch(`https://desolate-bastion-01704.herokuapp.com/user/${user?.email}`, {
+            fetch(`http://localhost:5000/user/${user?.email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ const MyProfile = () => {
                     </div>
                     <h1>Name: Mr/Mrs.{user?.displayName}</h1>
                     <h1>Email: {user?.email}</h1>
-                    <label for="my-modal-6" className="btn modal-button hover:bg-yellow-500 hover:border-yellow-500 hover:text-black">Edit Profile</label>
+                    <label for="my-modal-6" className="btn modal-button hover:bg-yellow-500 hover:border-yellow-500 hover:text-black">Update Profile</label>
                 </div>
                 <div>
                     <div class="card w-96 bg-base-100 shadow-xl">
@@ -82,13 +82,13 @@ const MyProfile = () => {
                                 Email: {singleUser?.email}
                             </h2>
                             <h2 class="card-title font-bold text-sm">
-                                Phone: +088 {singleUser?.phone}
+                                Phone: {singleUser?.phone || 'Not Available'}
                             </h2>
                             <h2 class="card-title font-bold text-sm">
-                                Education: {singleUser?.education}
+                                Education: {singleUser?.education || 'Not Updated'}
                             </h2>
                             <h2 class="card-title font-bold text-sm underline text-teal-300">
-                                {singleUser?.linkedIn}
+                                {singleUser?.linkedIn || 'Not Updated'}
                             </h2>
                            
                             

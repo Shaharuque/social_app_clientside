@@ -8,7 +8,7 @@ const MySwal = withReactContent(Swal);
 const UserRow = ({ user, index, refetch }) => {
     const { email, role } = user
     const makeAdmin = () => {
-        fetch(`https://desolate-bastion-01704.herokuapp.com/user/makeAdmin/${email}`, {
+        fetch(`http://localhost:5000/user/makeAdmin/${email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('token')}`
@@ -41,7 +41,7 @@ const UserRow = ({ user, index, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://desolate-bastion-01704.herokuapp.com/user/remove/${email}`, {
+                fetch(`http://localhost:5000/user/remove/${email}`, {
                     method: 'DELETE',
                     headers: {
                         'authorization': `Bearer ${localStorage.getItem('token')}`

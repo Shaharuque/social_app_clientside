@@ -21,7 +21,6 @@ const ProductCard = ({product}) => {
         <div class="card-body items-center text-center">
           <h2 class="card-title">{name}</h2>
           <p>{description}</p>
-          <h3 style={{fontWeight:'600'}}>Minimum Quantity to order: {min_quantity}</h3>
           <h3 style={{fontWeight:'600',color:'green'}}>Available: {available_quantity}</h3>
           <h3 style={{fontWeight:'600',color:'teal'}}>Price: {price}</h3>
           <div class="card-actions">

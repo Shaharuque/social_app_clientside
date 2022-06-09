@@ -13,7 +13,7 @@ const PurchaseProduct = () => {
 
     //product id r basis a DB thekey paarticular product details load
     useEffect(() => {
-        fetch(`https://desolate-bastion-01704.herokuapp.com/product/${id}`)
+        fetch(`http://localhost:5000/product/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -26,17 +26,18 @@ const PurchaseProduct = () => {
         const order={
             product_id:id,
             email:user.email,
-            name:user.displayName,
+            name:product.name,
             quantity:e.target.quantity.value,
             price:product.price,
             total:product.price*e.target.quantity.value,
             status:'pending',
+            image:product.img,
             date:new Date().toLocaleDateString(),
         }
         console.log(order)
         if(parseInt(order.quantity)<=parseInt(product.available_quantity) && parseInt(order.quantity)>=parseInt(product.min_quantity)){
             //Order info Server side a send kora
-            fetch('https://desolate-bastion-01704.herokuapp.com/order',{
+            fetch('http://localhost:5000/order',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'

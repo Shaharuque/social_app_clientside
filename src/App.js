@@ -23,6 +23,7 @@ import PaymentPage from './Pages/Payment/PaymentPage';
 import Users from './Pages/Dashboard/Users';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import Blogs from './Pages/Blogs/Blogs';
+import FinalOrder from './Pages/Dashboard/FinalOrder';
 
 function App() {
 
@@ -43,6 +44,12 @@ function App() {
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <PurchaseProduct/>
+          </RequireAuth>
+        }>
+        </Route>
+        <Route path='/final/order' element={
+          <RequireAuth>
+            <FinalOrder/>
           </RequireAuth>
         }>
         </Route>
