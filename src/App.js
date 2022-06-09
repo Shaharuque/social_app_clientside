@@ -24,6 +24,7 @@ import Users from './Pages/Dashboard/Users';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import Blogs from './Pages/Blogs/Blogs';
 import FinalOrder from './Pages/Dashboard/FinalOrder';
+import UpdateProduct from './Pages/Dashboard/UpdateProduct';
 
 function App() {
 
@@ -72,6 +73,12 @@ function App() {
         <Route path='/payment/:id' element={
           <RequireAuth>
             <PaymentPage/>
+          </RequireAuth>
+        }>
+        </Route>
+        <Route path='/update_product/:id' element={
+          <RequireAuth>
+            <UpdateProduct/>
           </RequireAuth>
         }>
         </Route>

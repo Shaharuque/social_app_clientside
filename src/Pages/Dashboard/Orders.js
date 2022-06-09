@@ -56,7 +56,7 @@ const Orders = () => {
                         toast.error('Failed to delete order');
                     }
                     else{
-                        toast.success('Successfully deleted order');
+                        toast.success('Successfully deleted product from wishlist');
                     }
                     return res.json()
                 })

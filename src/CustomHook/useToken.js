@@ -6,6 +6,7 @@ const useToken=(user)=>{
         const email=user?.user?.email
         const currentUser={email:email}  //client side thekey ai data jabey
 
+        //jei user register korsey tar email server a pathia user k DB tey store kora hocchey and ekta token generate korey dewa hocchey backend thekey
         if(email){
             fetch(`http://localhost:5000/user/${email}`,{
                 method:'PUT',
