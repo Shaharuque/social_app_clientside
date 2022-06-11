@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useProducts from '../../CustomHook/useProducts';
 import ProductCard from './ProductCard';
 
@@ -21,8 +22,15 @@ const Banner = () => {
             {/*Tools/part /products*/}
             <div class="grid lg:grid-cols-3 gap-4 p-4">
                 {
-                    products.map(product => <ProductCard product={product}></ProductCard>)
+                    products.slice(0, 6).map(product => <ProductCard product={product}></ProductCard>)
                 }
+            </div>
+            <div className='flex justify-end'>
+                <button className='rounded-lg bg-teal-700 hover:bg-black text-white p-2'>
+                    <Link to='/showall/products'>
+                        Show More!
+                    </Link>
+                </button>
             </div>
         </div>
     );

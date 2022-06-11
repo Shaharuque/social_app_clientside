@@ -25,6 +25,7 @@ import ManageProducts from './Pages/Dashboard/ManageProducts';
 import Blogs from './Pages/Blogs/Blogs';
 import FinalOrder from './Pages/Dashboard/FinalOrder';
 import UpdateProduct from './Pages/Dashboard/UpdateProduct';
+import ShowAllProducts from './ShowAllProducts/ShowAllProducts';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path='/product_review' element={<Reviews></Reviews>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/showall/products' element={<ShowAllProducts></ShowAllProducts>}></Route>
         <Route path='/meeting' element={
           <RequireAuth>
             <Meeting/>

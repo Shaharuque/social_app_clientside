@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import useAdmin from '../../CustomHook/useAdmin';
 
 const PurchaseProduct = () => {
-    let [num, setNum]= useState(0);
+    let [num, setNum] = useState(0);
     const { id } = useParams()
     const [product, setProduct] = React.useState()
     const [user, loading, error] = useAuthState(auth);
@@ -53,7 +53,7 @@ const PurchaseProduct = () => {
                     .then(res => res.json())
                     .then(data => {
                         // console.log(data)
-                        toast('Order Placed')
+                        toast.success('Added To Wishlist')
                         document.getElementById('font-fields').reset()
                     })
             }
@@ -73,27 +73,25 @@ const PurchaseProduct = () => {
     }
 
     //quantity increase and decrease
-    let incNum =()=>{
-        if(num<10)
-        {
-        setNum(Number(num)+1);
+    let incNum = () => {
+        if (num < 10) {
+            setNum(Number(num) + 1);
         }
-      };
-      let decNum = () => {
-         if(num>0)
-         {
-          setNum(num - 1);
-         }
-      }
+    };
+    let decNum = () => {
+        if (num > 0) {
+            setNum(num - 1);
+        }
+    }
     const backToPrevious = () => {
         window.history.back()    //goes back to previous page (navigate use kora laglo na ar)
     }
 
     return (
-        <>
-            <div className='grid grid-cols-1 lg:grid-cols-2 p-6'>
-                <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div className="card w-80 bg-base-100 shadow-xl">
+        <div className='bg-black'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 p-6 gap-4'>
+                <div className='bg-white text-yellow-500 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex flex-col items-center p-2'>
+                    <div className="card w-80 ">
                         <figure><img src={product?.img} alt={product?.name} /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
@@ -107,31 +105,31 @@ const PurchaseProduct = () => {
                             </div>
                             <div className="mt-6">
                                 <div className=" font-semibold text-teal-400">Available Quantity: {product?.available_quantity}</div>
-                                <div className=" font-semibold text-red-400">Minimun Purchase: {product?.min_quantity}</div>
+                                <div className=" font-bold text-red-600">Minimun Purchase: {product?.min_quantity}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className=' bg-teal-700 rounded-lg mt-4'>
-                    <div className=' mt-2 bg-white text-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg'>
+                <div className='bg-white text-yellow-500 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg  mt-4 flex flex-col justify-center font-bold'>
+                    <div className=' mt-2 '>
                         <h2 className='text-center  rounded-lg'>Add To Wishlist</h2>
                     </div>
-                    <div className=' bg-white bg-opacity-20 backdrop-blur-lg rounded'>
-                        <form id='font-fields' onSubmit={orderHandle} className="my-8 grid grid-cols-1 gap-5 justify-items-center p-2">
-                            <input value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs " disabled />
-                            <input value={user?.email} className="input input-bordered input-accent w-full max-w-xs" disabled />
-                            <input type="text" name='adress' placeholder="Adress" className="input input-bordered input-accent w-full max-w-xs " required />
-                            <input type="text" name='phone' placeholder="Phone No." className="input input-bordered input-accent w-full max-w-xs " required />
-                            <input type='text' name='quantity' placeholder="Order_Quantity" className="input input-bordered input-accent w-full max-w-xs " required />
-                            <input type="submit" value='Add To WishList' className="input input-bordered input-accent w-full max-w-xs " />
-                        </form>
-                    </div>
+
+                    <form id='font-fields' onSubmit={orderHandle} className="my-8 grid grid-cols-1 gap-5 justify-items-center p-2 bg-white bg-opacity-20 backdrop-blur-lg rounded">
+                        <input value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs " disabled />
+                        <input value={user?.email} className="input input-bordered input-accent w-full max-w-xs" disabled />
+                        <input type="text" name='adress' placeholder="Adress" className="input input-bordered input-accent w-full max-w-xs " required />
+                        <input type="text" name='phone' placeholder="Phone No." className="input input-bordered input-accent w-full max-w-xs " required />
+                        <input type='text' name='quantity' placeholder="Order_Quantity" className="input input-bordered input-accent w-full max-w-xs " required />
+                        <input type="submit" value='Add To WishList' className="input input-bordered input-accent w-full max-w-xs hover:bg-yellow-500 hover:text-white hover:border-yellow-500 cursor-pointer font-bold" />
+                    </form>
+
                 </div>
             </div>
             <div className='flex justify-end p-2'>
                 <button onClick={backToPrevious} className='bg-teal-500 rounded-lg text-white hover:bg-yellow-500 p-3'>Back</button>
             </div>
-        </>
+        </div>
     );
 };
 

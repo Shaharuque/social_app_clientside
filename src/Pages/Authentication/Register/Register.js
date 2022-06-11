@@ -5,11 +5,12 @@ import auth from '../../../firebase.init'
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../../Loading/Loading';
 import useToken from '../../../CustomHook/useToken';
+import { toast } from 'react-toastify';
 
 // import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
-    const [agree,setAgree]=useState(false)
+    // const [agree,setAgree]=useState(false)
     const navigate=useNavigate()
     //for updating user profile
     const [displayName, setDisplayName] = useState('');
@@ -38,6 +39,7 @@ const Register = () => {
 
     //backend thekey token peley e navigate korbo user k
     if(token){
+        toast.success('Welcome to Hamburg Menufacturer')
         navigate('/')
     }
 
@@ -47,7 +49,7 @@ const Register = () => {
 
     let registerError;
     if (error || updateError) {
-        registerError = <p className='text-red-500 font-bold'><small>{error?.message} || {updateError?.message}</small></p>
+        registerError = <p className='text-red-700 font-bold'><small>{error?.message}</small></p>
         
     }
     return (
@@ -87,18 +89,12 @@ const Register = () => {
                     class="input input-bordered input-info w-full max-w-xs"
                     required
                     />
-                    
-                    <div>
-                    <input onClick={()=>setAgree(!agree)} style={{marginRight:'3px',marginBottom:'20px'}} type="checkbox" name="terms" id="" />
-                    {/*css styling a conditional rendering ar use */}
-                    <label style={agree ?{fontWeight:'bold',color:'teal'} : {fontWeight:'bold',color:'lightblue'}} htmlFor="term&condition">Terms&conditions</label>
-                    </div>
-                    
-                    <Button variant="primary" type="submit" disabled={!agree}>
+                    {/*error show */}
+                    {registerError}
+
+                    <Button variant="primary" type="submit">
                         Register
                     </Button>
-                    {/* showing firbase error if found any */}
-                    {registerError}
                 </Form>
                 <div className='grid grid-cols-1 gap-6 justify-items-center'>
                     <p style={{ marginTop: '10px' }}>Already registed? <Link to='/login' style={{ color: 'teal', fontWeight: '600' }}>login</Link></p>
