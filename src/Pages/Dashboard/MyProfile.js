@@ -72,7 +72,7 @@ const MyProfile = () => {
                     <label for="my-modal-6" className="btn modal-button hover:bg-yellow-500 hover:border-yellow-500 hover:text-black">Update Profile</label>
                 </div>
                 <div>
-                    <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card lg:w-96 bg-base-100 shadow-xl">
                         <figure><img src={singleUser?.img} alt="Profile" /></figure>
                         <div class="card-body">
                             <h2 class="card-title font-bold text-sm">
@@ -107,11 +107,11 @@ const MyProfile = () => {
                             <form id='form-field' onSubmit={userInfoUpdate} className="my-8 grid grid-cols-1 gap-5 justify-items-center">
                                 <input value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs " disabled />
                                 <input value={user?.email} className="input input-bordered input-accent w-full max-w-xs" disabled />
-                                <input type="text" name='picture' placeholder="Profile Picture" className="input input-bordered input-accent w-full max-w-xs " required />
-                                <input type="text" name='city' placeholder="Adress" className="input input-bordered input-accent w-full max-w-xs " required />
-                                <input type="text" name='phone' placeholder="Phone No." className="input input-bordered input-accent w-full max-w-xs " required />
-                                <input type="text" name='education' placeholder="Education" className="input input-bordered input-accent w-full max-w-xs " required />
-                                <input type="text" name='linkedIn' placeholder="LinkedIn" className="input input-bordered input-accent w-full max-w-xs " required />
+                                <input type="text" name='picture' placeholder="URL" className="input input-bordered input-accent w-full max-w-xs" required/>
+                                <input type="text" name='city' placeholder="Adress" className="input input-bordered input-accent w-full max-w-xs "/>
+                                <input type="number" name='phone' placeholder="+088 014758523" className="input input-bordered input-accent w-full max-w-xs" required/>
+                                <input type="text" name='education' placeholder="Education" className="input input-bordered input-accent w-full max-w-xs "/>
+                                <input type="text" name='linkedIn' placeholder="LinkedIn" className="input input-bordered input-accent w-full max-w-xs "/>
                                 <input type="submit" value='Update Profile' className="input input-bordered input-accent w-full max-w-xs " />
                             </form>
                         </div>

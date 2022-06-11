@@ -26,6 +26,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import FinalOrder from './Pages/Dashboard/FinalOrder';
 import UpdateProduct from './Pages/Dashboard/UpdateProduct';
 import ShowAllProducts from './ShowAllProducts/ShowAllProducts';
+import AddingCar from './Pages/Dashboard/AddCar/AddingCar';
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
           <Route path='order' element={<Orders></Orders>}></Route>
           <Route path='myreview' element={<MyReview></MyReview>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
+          <Route path='addcars' element={<AddingCar />} />
           <Route path='addproducts' element={<AddProducts />} />
           <Route path='manageproducts' element={<ManageProducts></ManageProducts>} />
         </Route>

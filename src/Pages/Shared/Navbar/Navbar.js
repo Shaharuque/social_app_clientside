@@ -57,7 +57,12 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <Link to='/' class="btn btn-ghost normal-case text-xl text-teal-600 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg hover:bg-yellow-400 hover:text-white">Humbarg_Manufacturer</Link>
+                   <div className=' bg-opacity-20 backdrop-blur-lg drop-shadow-lg max-w-full rounded-lg lg:hover:bg-yellow-400 lg:hover:text-white'>
+                        <Link to='/' class="flex items-center normal-case font-semibold text-xl">
+                        <img style={{width:'70px',borderRadius:'10px'}} src='https://www.designrush.com/uploads/users/customer-11/image_1526479777_RYv4kDbzP5OgvDePRfi9jcp8zE9ql3hSAb2ZBmHE.jpeg' alt='car-logo'/>
+                        IRISH_CAR_PARADISE
+                        </Link>
+                   </div>
                 </div>
                 
                 <div class="navbar-end hidden lg:flex">

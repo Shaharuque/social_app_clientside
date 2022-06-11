@@ -10,15 +10,15 @@ const ProductCard = ({ product }) => {
   }
   return (
     <>
-      <div class="card bg-base-100 shadow-xl image-full">
+      <div class="card shadow-xl image-full">
         <figure><img src={img} alt="Shoes" /></figure>
         <div class="card-body">
           <h2 class="card-title">{name}</h2>
-          <p className="text-yellow-300 font-bold">{description}</p>
+          <p className="text-yellow-500 font-bold">{description}</p>
           <h3>Available: {available_quantity}</h3>
           <h3>Price: {price}</h3>
-          <div class="card-actions">
-            <button class="bg-black px-2 rounded-lg hover:bg-yellow-500 hover:text-black" onClick={() => productPurchase(_id)}>View</button>
+          <div class="card-actions flex justify-end">
+            <button class="bg-info p-2 rounded-lg hover:bg-yellow-500 hover:text-black" onClick={() => productPurchase(_id)}>View</button>
           </div>
         </div>
       </div>

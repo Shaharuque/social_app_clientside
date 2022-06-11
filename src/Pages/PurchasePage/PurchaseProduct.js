@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from "react-toastify";
 import useAdmin from '../../CustomHook/useAdmin';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { FaCartArrowDown } from 'react-icons/fa';
+import { BsFillCartCheckFill } from 'react-icons/bs';
 
 const PurchaseProduct = () => {
     let [num, setNum] = useState(0);
@@ -88,9 +91,9 @@ const PurchaseProduct = () => {
     }
 
     return (
-        <div className='bg-black'>
-            <div className='grid grid-cols-1 lg:grid-cols-2 p-6 gap-4'>
-                <div className='bg-white text-yellow-500 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex flex-col items-center p-2'>
+        <div className='bg-yellow-500 p-6'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 p-6 gap-4 bg-white bg-opacity-30 backdrop-blur-lg rounded drop-shadow-lg'>
+                <div className=' text-black flex flex-col items-center p-2'>
                     <div className="card w-80 ">
                         <figure><img src={product?.img} alt={product?.name} /></figure>
                         <div className="card-body">
@@ -104,30 +107,35 @@ const PurchaseProduct = () => {
                                 <div className="badge badge-outline font-bold">{product?.price}$</div>
                             </div>
                             <div className="mt-6">
-                                <div className=" font-semibold text-teal-400">Available Quantity: {product?.available_quantity}</div>
+                                <div className=" font-semibold">Available Quantity: {product?.available_quantity}</div>
                                 <div className=" font-bold text-red-600">Minimun Purchase: {product?.min_quantity}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='bg-white text-yellow-500 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg  mt-4 flex flex-col justify-center font-bold'>
+                <div className='bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg  mt-4 flex flex-col justify-center font-bold'>
                     <div className=' mt-2 '>
-                        <h2 className='text-center  rounded-lg'>Add To Wishlist</h2>
+                        <h2 className='rounded-lg flex items-center justify-center'>ADD IT NOW!<FaCartArrowDown /></h2>
                     </div>
 
-                    <form id='font-fields' onSubmit={orderHandle} className="my-8 grid grid-cols-1 gap-5 justify-items-center p-2 bg-white bg-opacity-20 backdrop-blur-lg rounded">
-                        <input value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs " disabled />
-                        <input value={user?.email} className="input input-bordered input-accent w-full max-w-xs" disabled />
-                        <input type="text" name='adress' placeholder="Adress" className="input input-bordered input-accent w-full max-w-xs " required />
-                        <input type="text" name='phone' placeholder="Phone No." className="input input-bordered input-accent w-full max-w-xs " required />
-                        <input type='text' name='quantity' placeholder="Order_Quantity" className="input input-bordered input-accent w-full max-w-xs " required />
-                        <input type="submit" value='Add To WishList' className="input input-bordered input-accent w-full max-w-xs hover:bg-yellow-500 hover:text-white hover:border-yellow-500 cursor-pointer font-bold" />
-                    </form>
+                    <form id='font-fields' onSubmit={orderHandle} className="my-8 grid grid-cols-1 gap-5 justify-items-center p-2 text-black">
+                        <input value={user?.displayName} className="input input-warning  w-full max-w-xs " disabled />
+                        <input value={user?.email} className="input input-warning  w-full max-w-xs" disabled />
+                        <input type="text" name='adress' placeholder="Adress" className="input input-warning  w-full max-w-xs " required />
+                        <input type="number" name='phone' placeholder="Phone Number" className="input input-warning  w-full max-w-xs " required />
+                        <input type='number' name='quantity' placeholder="Order Quantity" className="input input-warning  w-full max-w-xs " required />
 
+                        <button type="submit" className="input input-warning w-full max-w-xs hover:bg-yellow-500 hover:text-white hover:border-yellow-500 cursor-pointer font-bold flex items-center justify-center">
+                            WISHLIST
+                            <BsFillCartCheckFill />
+                        </button>
+                    </form>
                 </div>
             </div>
             <div className='flex justify-end p-2'>
-                <button onClick={backToPrevious} className='bg-teal-500 rounded-lg text-white hover:bg-yellow-500 p-3'>Back</button>
+                <button onClick={backToPrevious} className='bg-black rounded-lg text-white hover:bg-white hover:text-black hover:font-bold p-3 flex items-center'><IoMdArrowRoundBack />Back
+                </button>
+
             </div>
         </div>
     );

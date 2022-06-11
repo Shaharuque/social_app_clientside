@@ -17,7 +17,7 @@ const ShowAllProducts = () => {
     }
     console.log(products)
     return (
-       <div className='bg-black grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
+       <div className='bg-yellow-500 p-8 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
         {
             products.map(product => <ProductCard product={product} key={product._id}></ProductCard>)
         }
