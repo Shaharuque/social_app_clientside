@@ -27,6 +27,7 @@ import FinalOrder from './Pages/Dashboard/FinalOrder';
 import UpdateProduct from './Pages/Dashboard/UpdateProduct';
 import ShowAllProducts from './ShowAllProducts/ShowAllProducts';
 import AddingCar from './Pages/Dashboard/AddCar/AddingCar';
+import PurchaseCar from './Pages/PurchasePage/PurchaseCar';
 
 function App() {
 
@@ -48,6 +49,12 @@ function App() {
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <PurchaseProduct/>
+          </RequireAuth>
+        }>
+        </Route>
+        <Route path='/car_details/:carid' element={
+          <RequireAuth>
+            <PurchaseCar/>
           </RequireAuth>
         }>
         </Route>

@@ -98,7 +98,13 @@ const Orders = () => {
                         {orders.map((order, index) => (
                             <tr>
                                 <td>{index + 1}</td>
-                                <td><img className='w-12' src={order.image} alt='product' /></td>
+                                <td>
+                                <div class="avatar">
+                                <div class="w-20 rounded">
+                                    <img src={order.image} alt='orderimage'/>
+                                </div>
+                                </div>
+                                </td>
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
                                 <td>{order.total}</td>

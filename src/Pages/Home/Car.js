@@ -2,9 +2,16 @@
 import React from 'react';
 import {MdOutlineWhatshot,MdOutlineSell} from 'react-icons/md';
 import {FaAngleDoubleRight} from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Car = ({index, car, refetch}) => {       //props={index:index,car:car,refetch:refetch} thakey sheita destructure korey nisi direct 
-    const { name, description, price, img,category } = car
+    const { name, description, price, img,category,_id } = car
+    const navigate=useNavigate()
+
+    const exploreHandler=(carId)=>{
+        navigate('/car_details/'+carId)
+    }
+
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
@@ -17,7 +24,7 @@ const Car = ({index, car, refetch}) => {       //props={index:index,car:car,refe
                     <p>{description.length>150 ? description.slice(0,150)+'...' : description}</p>
                     <div className="card-actions justify-end">
                         <button className="badge badge-outline p-4 text-teal-500">{category} <MdOutlineSell /></button>
-                        <button className="badge badge-warning p-4 text-black hover:text-white hover:bg-black">Explore <FaAngleDoubleRight/></button>
+                        <button onClick={()=>exploreHandler(_id)} className="badge badge-warning p-4 text-black hover:text-white hover:bg-black">Explore <FaAngleDoubleRight/></button>
                     </div>
                 </div>
             </div>
