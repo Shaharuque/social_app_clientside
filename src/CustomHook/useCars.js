@@ -6,7 +6,7 @@ const useCars=()=>{
     const [vehicles,setVehicles]=useState([])
 
     useEffect(()=>{
-        fetch("http://localhost:5000/getcars")
+        fetch("https://desolate-bastion-01704.herokuapp.com/getcars")
         .then(res=>res.json())
         .then(data=>{setVehicles(data)})
     },[])
