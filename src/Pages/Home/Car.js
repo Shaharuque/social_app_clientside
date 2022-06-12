@@ -4,8 +4,8 @@ import {MdOutlineWhatshot,MdOutlineSell} from 'react-icons/md';
 import {FaAngleDoubleRight} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const Car = ({index, car, refetch}) => {       //props={index:index,car:car,refetch:refetch} thakey sheita destructure korey nisi direct 
-    const { name, description, price, img,category,_id } = car
+const Car = ({c}) => {       //props={index:index,car:car,refetch:refetch} thakey sheita destructure korey nisi direct 
+    const { name, description, price, img,category,_id } = c
     const navigate=useNavigate()
 
     const exploreHandler=(carId)=>{

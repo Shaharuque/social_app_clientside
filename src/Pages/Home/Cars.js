@@ -3,12 +3,13 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 import Car from './Car';
 import { MdOutlineSell } from 'react-icons/md'
+import { useEffect } from 'react';
 
 
 const Cars = () => {
-
+    //const [cars, setCars] = React.useState([]);
     //getting all cars
-    const { isLoading, data: cars, refetch } = useQuery('all_cars', () =>
+    const { isLoading, data: cars } = useQuery('vehicles', () =>
         // heruko site boshbey
         fetch('http://localhost:5000/getcars', {
             method: 'GET',
@@ -23,15 +24,20 @@ const Cars = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/getcars')
+    //     .then(res=>res.json())
+    //     .then(data=>{setCars(data)})
+    // },[])
 
     console.log(cars)
 
     return (
         <div className='mt-12 mb-12'>
             <h1 className='flex justify-center items-center text-xl font-bold mb-4'>TOP CHARTTED CARS<MdOutlineSell /></h1>
-            <div className='grid grid-cols-1 lg:grid-cols-2 p-8 gap-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 p-4'>
                 {
-                    cars.slice(0, 6).map((car, index) => <Car car={car} key={car._id} index={index} refetch={refetch}></Car>)
+                    cars.map(c => <Car c={c} key={c._id}></Car>)
                 }
             </div>
         </div>
