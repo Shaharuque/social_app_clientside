@@ -12,7 +12,7 @@ const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
 
     const { isLoading, data: singleUser, refetch } = useQuery('availble', () =>
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://desolate-bastion-01704.herokuapp.com/user/${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -40,7 +40,7 @@ const MyProfile = () => {
         console.log(userInfo)
         // email thakley particular email ar user ar data chailey update kora jabey 
         if (user?.email) {
-            fetch(`http://localhost:5000/user/${user?.email}`, {
+            fetch(`https://desolate-bastion-01704.herokuapp.com/user/${user?.email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

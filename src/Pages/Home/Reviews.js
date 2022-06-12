@@ -5,7 +5,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://desolate-bastion-01704.herokuapp.com/reviews', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`

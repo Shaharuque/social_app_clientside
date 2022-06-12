@@ -7,7 +7,7 @@ const MyReview = () => {
     const handleReview = (e) => {
         const userReview = reviewRef.current.value
         
-        fetch('http://localhost:5000/review', {
+        fetch('https://desolate-bastion-01704.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
