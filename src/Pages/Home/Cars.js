@@ -32,6 +32,9 @@ const Cars = () => {
     //     .then(data=>{setCars(data)})
     // },[])
 
+    if(!vehicles){
+        return <Loading></Loading>
+    }
     console.log(vehicles)
 
     return (
