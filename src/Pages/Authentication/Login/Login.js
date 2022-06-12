@@ -17,12 +17,16 @@ import auth from "../../../firebase.init";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useToken from "../../../CustomHook/useToken";
+import { GrLogin } from 'react-icons/gr'
+
 
 const Login = () => {
   const navigate = useNavigate();
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [formData, setFormData] = useState();
+
+
   //for react hook form purpose
   const {
     register,
@@ -36,7 +40,7 @@ const Login = () => {
   //reset password ar jnno useSendPasswordResetEmail react-firebase-hook use kora holo
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   //access token get after valid login
-  const [token,setToken]=useToken(user)
+  const [token, setToken] = useToken(user)
 
   //user login kora na tahley to login page a niye jabey plus user login korar por shei user k jei page thekey login ar jnno ashsey shei page a niye jabey
   const location = useLocation();
@@ -100,9 +104,11 @@ const Login = () => {
 
   return (
     <div className="container w-50 mx-auto mb-24">
-      <h3 style={{ color: "teal", textAlign: "center", margin: "50px 0" }}>
-        Login page
-      </h3>
+      <div className="flex justify-center">
+        <h3 className="text-teal-500 mt-12 mb-8 font-bold flex items-center">
+          Welcome To Login page
+        </h3>
+      </div>
 
       {/* React hook form use kora hoisey */}
       <form
@@ -112,14 +118,14 @@ const Login = () => {
         {/* inpur field ar design daisy UI thekey newa(Text Input) */}
 
         {/* email field validation and error handling */}
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
-            <span class="label-text">What is your name?</span>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text font-bold">Email</span>
           </label>
           <input
             type="email"
             placeholder="Your Email"
-            class="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs"
             {...register("email", {
               required: {
                 value: true,
@@ -132,7 +138,7 @@ const Login = () => {
               },
             })}
           />
-          <label class="label">
+          <label className="label">
             {errors.email?.type === "required" && (
               <span className="label-text-alt text-red-500">
                 {errors.email.message}
@@ -149,7 +155,7 @@ const Login = () => {
         {/* password field validation and error handling */}
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span className="label-text font-bold">Password</span>
           </label>
           <input
             type="password"
@@ -180,7 +186,7 @@ const Login = () => {
           </label>
         </div>
         <input
-          className="btn w-full max-w-xs text-white bg-teal-800"
+          className="btn w-full max-w-xs text-white bg-yellow-500 border-yellow-500 hover:bg-black"
           type="submit"
           value="Login"
         />
@@ -190,12 +196,12 @@ const Login = () => {
       {/* ---------------------------------------- */}
       <div className="grid grid-cols-1 justify-items-center">
         <p style={{ marginTop: "10px" }}>
-          New to Menufacturar Site?{" "}
+          New to this site?{" "}
           <span
             onClick={nevigateToRegister}
             style={{ color: "red", cursor: "pointer" }}
           >
-            register now
+            Register Now
           </span>
         </p>
         <p style={{ marginTop: "10px" }}>

@@ -6,8 +6,9 @@ import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateP
 import Loading from '../../Loading/Loading';
 import useToken from '../../../CustomHook/useToken';
 import { toast } from 'react-toastify';
-
-// import SocialLogin from '../SocialLogin/SocialLogin';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import Lottie from 'react-lottie';
+import animationData from '../../../utilies/data.json';
 
 const Register = () => {
     // const [agree,setAgree]=useState(false)
@@ -15,6 +16,15 @@ const Register = () => {
     //for updating user profile
     const [displayName, setDisplayName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
 
     const [
         createUserWithEmailAndPassword,
@@ -53,9 +63,14 @@ const Register = () => {
         
     }
     return (
-        <div style={{marginBottom:'50px'}}>
-            <div className='container w-50 mx-auto'>
-                <h3 style={{ color: 'lightBlue', textAlign: 'center', marginTop: '50px' }}>Register page</h3>
+        <div className='grid grid-cols-1 lg:grid-cols-2 bg-yellow-500 py-12'>
+        {/*lottie animation */}
+            <Lottie options={defaultOptions}
+            height={400}
+            width={400}/>
+
+            <div className=''>
+                <h3 className='text-teal-500 mt-12 text-center mb-8 font-bold'>REGISTER TO GET STARTED</h3>
                 <Form  className="grid grid-cols-1 gap-6 justify-items-center" onSubmit={submitHandler}>
 
                     <input
@@ -92,15 +107,19 @@ const Register = () => {
                     {/*error show */}
                     {registerError}
 
-                    <Button variant="primary" type="submit">
-                        Register
-                    </Button>
+                    <input className="btn w-full max-w-xs text-white bg-black hover:bg-yellow-800"
+                    type="submit"
+                    value="Register" />
                 </Form>
                 <div className='grid grid-cols-1 gap-6 justify-items-center'>
                     <p style={{ marginTop: '10px' }}>Already registed? <Link to='/login' style={{ color: 'teal', fontWeight: '600' }}>login</Link></p>
                 </div>
+
+                <div className='grid grid-cols-1 justify-items-center'>
+                <SocialLogin></SocialLogin>
+                </div>
             </div>
-            {/* <SocialLogin></SocialLogin> */}
+           
         </div>
     );
 };

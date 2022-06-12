@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../../CustomHook/useToken';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
+import {FcGoogle} from 'react-icons/fc'
 
 
 
@@ -37,17 +38,17 @@ const SocialLogin = () => {
 
     return (
         <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ border: '1px solid lightblue', width: '400px', height: '1px' }}></div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',margin:'20px 0' }}>
+                <div className='border-teal-500 border-2 w-full'></div>
                 <p style={{ margin: '0 10px', fontFamily: 'sans-serif',fontSize:'14px'}}>OR</p>
-                <div style={{ border: '1px solid lightblue', width: '400px', height: '1px' }}></div>
+                <div className='border-teal-500 border-2 w-full'></div>
             </div>
             {errorElement}
             
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,marginTop:'55px' }}>
-                <button style={{ borderRadius: '5px', border: '3px solid gray', padding: '5px', marginBottom: '10px', width: '250px',display:'flex' ,justifyContent:'center',alignItems:'center' }} onClick={() => signInWithGoogle()}>
-                    <img style={{ width: '25%', }} src='https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1' alt="" />
-                    <span style={{ textAlign: 'center' }}>Sign in with Google</span>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,marginTop:'40px' }}>
+                <button style={{ borderRadius: '5px', border: '1px solid black', padding: '5px', marginBottom: '10px', width: '250px',display:'flex' ,justifyContent:'center',alignItems:'center' }} onClick={() => signInWithGoogle()}>
+                    <span className='text-center  font-bold mr-2'>Sign in with Google</span>
+                    <FcGoogle/>
                 </button>
             </div>    
         </div>
