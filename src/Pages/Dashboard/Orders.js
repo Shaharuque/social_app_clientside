@@ -20,7 +20,7 @@ const Orders = () => {
 
 
     const { isLoading, error, data: orders, refetch } = useQuery('all orders', () =>
-        fetch(`https://desolate-bastion-01704.herokuapp.com/order?email=${user?.email}`, {
+        fetch(`http://localhost:5000/order?email=${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -45,7 +45,7 @@ const Orders = () => {
             confirmButtonText: "Delete it!",
           }).then((result) => {
             if(result.isConfirmed){
-                fetch(`https://desolate-bastion-01704.herokuapp.com/order/${orderId}`,{
+                fetch(`http://localhost:5000/order/${orderId}`,{
                     method:'DELETE',
                     headers:{
                         authorization:`bearer ${localStorage.getItem('token')}`

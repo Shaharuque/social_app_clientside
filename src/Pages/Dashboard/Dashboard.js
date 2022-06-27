@@ -63,9 +63,6 @@ const Dashboard = () => {
                 :
                 <div>
                   <li className='mb-4'>
-                    <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/order'>Wishlist</Link>
-                  </li>
-                  <li className='mb-4'>
                     <Link className='bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg font-bold' to='/dashboard/myreview'>Review</Link>
                   </li>
 

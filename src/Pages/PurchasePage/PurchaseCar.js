@@ -17,7 +17,7 @@ const PurchaseCar = () => {
     const [admin] = useAdmin(user);
     const { carid } = useParams()
 
-    const url = `https://desolate-bastion-01704.herokuapp.com/getcar/${carid}`
+    const url = `http://localhost:5000/getcar/${carid}`
     //basis on clicked car/carid we will fetch data from server
     const { isLoading, data: car, refetch } = useQuery('availblecar', () =>
         // heruko site boshbey
@@ -55,7 +55,7 @@ const PurchaseCar = () => {
         if (!admin) {
             if (parseInt(order.quantity) <= parseInt(car.available_quantity) && parseInt(order.quantity) >= parseInt(car.min_quantity)) {
                 //Order info Server side a send kora
-                fetch('https://desolate-bastion-01704.herokuapp.com/order', {
+                fetch('http://localhost:5000/order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -37,7 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path='/product_review' element={<Reviews></Reviews>}></Route>
+        <Route path='/post' element={<Reviews></Reviews>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/showall/products' element={<ShowAllProducts></ShowAllProducts>}></Route>
         <Route path='/meeting' element={

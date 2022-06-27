@@ -8,7 +8,7 @@ const UpdateProduct = () => {
     const navigate=useNavigate()
     const { isLoading, data: singleProduct, refetch } = useQuery('single product', () =>
         // heruko site boshbey
-        fetch(`https://desolate-bastion-01704.herokuapp.com/product/${id}`, {
+        fetch(`http://localhost:5000/product/${id}`, {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

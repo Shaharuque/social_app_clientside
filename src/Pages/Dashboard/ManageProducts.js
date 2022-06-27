@@ -9,7 +9,7 @@ const ManageProducts = () => {
     //react query use korey products fetch kora holo
     const { isLoading, data: products, refetch } = useQuery('availbleproducts', () =>
     // heruko site boshbey
-        fetch('https://desolate-bastion-01704.herokuapp.com/products', {
+        fetch('http://localhost:5000/products', {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

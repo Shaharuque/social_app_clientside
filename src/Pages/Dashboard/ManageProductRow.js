@@ -13,7 +13,7 @@ const ManageProductRow = ({ product,index,refetch }) => {
 
     const deleteProduct=(productId)=>{
         console.log(productId)
-        fetch(`https://desolate-bastion-01704.herokuapp.com/deleteproduct/${productId}`,{
+        fetch(`http://localhost:5000/deleteproduct/${productId}`,{
             method:"DELETE"
         })
         .then(res => {

@@ -40,9 +40,7 @@ const Navbar = () => {
                         </label>
                         <ul tabindex="0" class="bg-black text-white menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52">
                             <li><Link to='/'>HOME</Link></li>
-                            <li><Link to='/'>CARS</Link></li>
-                            <li><Link to='/meeting'>Meeting Us </Link></li>
-                            <li><Link to='/product_review'>REVIEW</Link></li>
+                            <li><Link to='/post'>REVIEW</Link></li>
                             <li><Link to='/about'>ABOUT</Link></li>
                             {/* user logged in kora thaklei dashboard ta dekhabo */}
                             {
@@ -69,9 +67,7 @@ const Navbar = () => {
                 <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg text-white">
                         <li className='hover:bg-yellow-400 rounded'><Link to='/'>HOME</Link></li>
-                        <li className='hover:bg-yellow-400 rounded'><Link to='/'>CARS</Link></li>
-                        <li className='hover:bg-yellow-400 rounded'><Link to='/meeting'>Meeting</Link></li>
-                        <li className='hover:bg-yellow-400 rounded'><Link to='/product_review'>REVIEW</Link></li>
+                        <li className='hover:bg-yellow-400 rounded'><Link to='/post'>REVIEW</Link></li>
                         <li className='hover:bg-yellow-400 rounded'><Link to='/about'>ABOUT </Link></li>
                         {/* user logged in kora thaklei dashboard ta dekhabo */}
                         {

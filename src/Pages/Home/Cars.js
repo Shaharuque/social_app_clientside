@@ -13,7 +13,7 @@ const Cars = () => {
     //getting all cars
     // const { isLoading, data: cars } = useQuery('vehicles', () =>
     //     // heruko site boshbey
-    //     fetch('https://desolate-bastion-01704.herokuapp.com/getcars', {
+    //     fetch('http://localhost:5000/getcars', {
     //         method: 'GET',
     //         headers: {
     //             authorization: `bearer ${localStorage.getItem('token')}`
@@ -27,7 +27,7 @@ const Cars = () => {
     //     return <Loading></Loading>
     // }
     // useEffect(()=>{
-    //     fetch('https://desolate-bastion-01704.herokuapp.com/getcars')
+    //     fetch('http://localhost:5000/getcars')
     //     .then(res=>res.json())
     //     .then(data=>{setCars(data)})
     // },[])
