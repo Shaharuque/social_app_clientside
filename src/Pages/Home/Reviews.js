@@ -14,7 +14,7 @@ const Reviews = () => {
     //console.log(user)
 
     const { isLoading, data: posts, refetch } = useQuery('allPosts', () =>
-        fetch('http://localhost:5000/reviews', {
+        fetch(' https://quiet-sea-27806.herokuapp.com/reviews', {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -37,7 +37,7 @@ const Reviews = () => {
             const date = new Date().toLocaleTimeString()
 
 
-            fetch('http://localhost:5000/review', {
+            fetch(' https://quiet-sea-27806.herokuapp.com/review', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Reviews = () => {
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/reviews', {
+    //     fetch(' https://quiet-sea-27806.herokuapp.com/reviews', {
     //         method: 'GET',
     //         headers: {
     //             authorization: `Bearer ${localStorage.getItem('token')}`
@@ -71,7 +71,7 @@ const Reviews = () => {
     //         .then(res => res.json())
     //         .then(data => {
     //             if (data) {
-    //                 fetch('http://localhost:5000/reviews', {
+    //                 fetch(' https://quiet-sea-27806.herokuapp.com/reviews', {
     //                     method: 'GET',
     //                     headers: {
     //                         authorization: `Bearer ${localStorage.getItem('token')}`

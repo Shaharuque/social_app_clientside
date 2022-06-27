@@ -8,7 +8,7 @@ const useToken=(user)=>{
 
         //jei user register korsey tar email server a pathia user k DB tey store kora hocchey and ekta token generate korey dewa hocchey backend thekey
         if(email){
-            fetch(`http://localhost:5000/user/${email}`,{
+            fetch(` https://quiet-sea-27806.herokuapp.com/user/${email}`,{
                 method:'PUT',
                 headers:{
                     'Content-Type':'application/json'

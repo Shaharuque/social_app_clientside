@@ -30,7 +30,7 @@ const AddProducts = () => {
     //console.log(product);
 
     //sending product to DB through API
-    fetch("http://localhost:5000/addproduct", {
+    fetch(" https://quiet-sea-27806.herokuapp.com/addproduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

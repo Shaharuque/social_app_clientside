@@ -13,7 +13,7 @@ const Cars = () => {
     //getting all cars
     // const { isLoading, data: cars } = useQuery('vehicles', () =>
     //     // heruko site boshbey
-    //     fetch('http://localhost:5000/getcars', {
+    //     fetch(' https://quiet-sea-27806.herokuapp.com/getcars', {
     //         method: 'GET',
     //         headers: {
     //             authorization: `bearer ${localStorage.getItem('token')}`
@@ -27,7 +27,7 @@ const Cars = () => {
     //     return <Loading></Loading>
     // }
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/getcars')
+    //     fetch(' https://quiet-sea-27806.herokuapp.com/getcars')
     //     .then(res=>res.json())
     //     .then(data=>{setCars(data)})
     // },[])

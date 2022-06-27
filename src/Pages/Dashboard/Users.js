@@ -5,7 +5,7 @@ import UserRow from './UserRow';
 
 const Users = () => {
     const { isLoading, error, data: all_user, refetch } = useQuery('all users', () =>
-        fetch('http://localhost:5000/all/users', {
+        fetch(' https://quiet-sea-27806.herokuapp.com/all/users', {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

@@ -12,7 +12,7 @@ const MyReview = () => {
         const name=user.displayName
         const comment=['loved that']
         
-        fetch('http://localhost:5000/review', {
+        fetch(' https://quiet-sea-27806.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

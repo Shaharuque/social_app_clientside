@@ -24,11 +24,11 @@ const ReviewCard = ({ review }) => {
         //getting all the comments of particular postId
         const postId = review._id
         console.log(postId)
-        fetch(`http://localhost:5000/comments/${postId}`)
+        fetch(` https://quiet-sea-27806.herokuapp.com/comments/${postId}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data)
-                fetch(`http://localhost:5000/comments/${postId}`)
+                fetch(` https://quiet-sea-27806.herokuapp.com/comments/${postId}`)
                     .then(res => res.json())
                     .then(result => setComments(result))
             })
@@ -41,7 +41,7 @@ const ReviewCard = ({ review }) => {
 
     //         const postId = review._id
     //         //console.log(postId)
-    //         fetch(`http://localhost:5000/comments/${postId}`)
+    //         fetch(` https://quiet-sea-27806.herokuapp.com/comments/${postId}`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 setComments(data)
@@ -58,7 +58,7 @@ const ReviewCard = ({ review }) => {
         console.log(userComment, postId, commenter)
 
         if (userComment) {
-            fetch('http://localhost:5000/comment', {
+            fetch(' https://quiet-sea-27806.herokuapp.com/comment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const ReviewCard = ({ review }) => {
                     // console.log(data)
                     document.getElementById('comment_field').value = ""
                     if (data) {
-                        fetch(`http://localhost:5000/comments/${postId}`)
+                        fetch(` https://quiet-sea-27806.herokuapp.com/comments/${postId}`)
                             .then(res => res.json())
                             .then(result => setComments(result))
                     }
@@ -87,7 +87,7 @@ const ReviewCard = ({ review }) => {
         const liked=1
         const disliked=0
         console.log(postId, liked, disliked,userName)
-          fetch(`http://localhost:5000/postcondition/${postId}`, {
+          fetch(` https://quiet-sea-27806.herokuapp.com/postcondition/${postId}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ const ReviewCard = ({ review }) => {
                     .then(data => {
                         console.log(data)
                         if(data){
-                            fetch(`http://localhost:5000/count_liked_disliked/${postId}`)
+                            fetch(` https://quiet-sea-27806.herokuapp.com/count_liked_disliked/${postId}`)
                             .then(res=>res.json())
                             .then(data=>{
                                 let totalLike=0
@@ -118,7 +118,7 @@ const ReviewCard = ({ review }) => {
         const liked=0
         const disliked=1
         console.log(postId, liked, disliked,userName)
-          fetch(`http://localhost:5000/postcondition/${postId}`, {
+          fetch(` https://quiet-sea-27806.herokuapp.com/postcondition/${postId}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -129,7 +129,7 @@ const ReviewCard = ({ review }) => {
                     .then(data => {
                         console.log(data)
                         if(data){
-                            fetch(`http://localhost:5000/count_liked_disliked/${postId}`)
+                            fetch(` https://quiet-sea-27806.herokuapp.com/count_liked_disliked/${postId}`)
                             .then(res=>res.json())
                             .then(data=>{
                                 let totalDislike=0

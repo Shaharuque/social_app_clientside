@@ -42,7 +42,7 @@ const AddingCar = () => {
         console.log(product);
 
         //sending product to DB through API
-        fetch("http://localhost:5000/addcars", {
+        fetch(" https://quiet-sea-27806.herokuapp.com/addcars", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

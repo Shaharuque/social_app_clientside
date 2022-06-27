@@ -21,7 +21,7 @@ const PurchaseProduct = () => {
 
     //product id r basis a DB thekey paarticular product details load
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(` https://quiet-sea-27806.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -46,7 +46,7 @@ const PurchaseProduct = () => {
         if (!admin) {
             if (parseInt(order.quantity) <= parseInt(product.available_quantity) && parseInt(order.quantity) >= parseInt(product.min_quantity)) {
                 //Order info Server side a send kora
-                fetch('http://localhost:5000/order', {
+                fetch(' https://quiet-sea-27806.herokuapp.com/order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

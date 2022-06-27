@@ -13,7 +13,7 @@ const ManageProductRow = ({ product,index,refetch }) => {
 
     const deleteProduct=(productId)=>{
         console.log(productId)
-        fetch(`http://localhost:5000/deleteproduct/${productId}`,{
+        fetch(` https://quiet-sea-27806.herokuapp.com/deleteproduct/${productId}`,{
             method:"DELETE"
         })
         .then(res => {

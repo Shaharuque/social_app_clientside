@@ -9,7 +9,7 @@ const ManageProducts = () => {
     //react query use korey products fetch kora holo
     const { isLoading, data: products, refetch } = useQuery('availbleproducts', () =>
     // heruko site boshbey
-        fetch('http://localhost:5000/products', {
+        fetch(' https://quiet-sea-27806.herokuapp.com/products', {
             method: 'GET',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

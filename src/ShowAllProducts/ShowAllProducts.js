@@ -6,7 +6,7 @@ import ProductCard from '../Pages/Home/ProductCard';
 
 const ShowAllProducts = () => {
     const { isLoading, error, data: products, refetch } = useQuery('all_products', () =>
-        fetch('http://localhost:5000/products', {
+        fetch(' https://quiet-sea-27806.herokuapp.com/products', {
             method: 'GET',
         }).then(res =>
             res.json()
